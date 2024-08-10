@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+         let arrey = [1, 5, 10,500,  20, 100] ;
+        
+        function sort(arr){
+
+            for (let i = 0; i < arr.length; i++) {
+               if(arr[i] < arr[i+1]){
+                var tmp = arr[i]
+
+                arr[i] = arr[i+1] 
+
+                arr[i + 1] = tmp
+
+                i = -1
+
+               }
+                
+            }
+            return arr
+        }
+        
+
+       function coins(total, arrey){
+
+        arrey = sort(arrey)
+       
+        let objectcoins = {}
+
+        for (const coin of arrey) {
+            if(coin <= total){
+               let nbr = Math.floor(total / coin)
+               objectcoins[coin] = nbr
+               total = total - (coin * nbr)
+            }
+            
+         
+        }
+        return objectcoins
+
+       }
+
+       console.log(coins(47, arrey))
+
+    </script>
+</body>
+</html>
